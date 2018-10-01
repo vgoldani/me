@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Send Email') {
           steps {
-            emailext(subject: 'Test', body: 'Test Me', to: 'vgoldaracena', from: 'hub')
+            emailext(subject: 'Test', body: 'Test Me', to: 'vgoldaracena')
           }
         }
       }
