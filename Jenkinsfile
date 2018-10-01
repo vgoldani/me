@@ -1,16 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('Install') {
-      steps {
-        sh 'npm install'
-      }
-    }
-    stage('Build') {
-      steps {
-        sh 'npm run build'
-      }
-    }
     stage('Test') {
       parallel {
         stage('Test') {
@@ -20,7 +10,7 @@ pipeline {
         }
         stage('Send Email') {
           steps {
-            emailext(subject: 'Test', body: 'Test Me', to: 'vgoldaracena')
+            emailext(subject: 'Test', body: 'Test Me', to: 'vgoldaracena', from: 'hub@axtel.com.mx')
           }
         }
       }
